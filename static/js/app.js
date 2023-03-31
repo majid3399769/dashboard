@@ -7,11 +7,6 @@ let names = [];
 let samples = [];
 let metadata = [];
 
-function hBarPlotly(id){
-
-};
-
-
 function filterData(person,id){
     return person.id==id
 };
@@ -71,14 +66,14 @@ function IndicatorPlotly(firstNameID){
 
 function barPlot(firstNameID){
     let personOTU = samples.filter(x=> filterData(x,firstNameID))[0];
-    console.log(personOTU)
+    //console.log(personOTU)
 
     //personOTU.sort((a,b)=> b.sample_values-a.sample_values)
     otuIds = personOTU.otu_ids.slice(0,10).reverse();
     otuLabels = personOTU.otu_labels.slice(0,10).reverse();
     sampleValues = personOTU.sample_values.slice(0,10).reverse();
 
-    console.log(otuIds)
+    //console.log(otuIds)
 
     data = [{
         type: 'bar',
@@ -93,7 +88,7 @@ function barPlot(firstNameID){
 
 function bubblePlot(firstNameID){
     let personOTU = samples.filter(x=> filterData(x,firstNameID))[0];
-    console.log(personOTU)
+   // console.log(personOTU)
 
     //personOTU.sort((a,b)=> b.sample_values-a.sample_values)
     otuIds = personOTU.otu_ids;
@@ -122,7 +117,7 @@ function bubblePlot(firstNameID){
 }
 
 d3.json(linkAPI).then(function(data){
-    console.log(data)
+    //console.log(data)
     dataAPI = data;
     names = data.names;
     samples = data.samples;
